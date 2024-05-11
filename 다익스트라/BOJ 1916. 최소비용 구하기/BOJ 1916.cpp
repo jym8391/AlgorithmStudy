@@ -17,7 +17,7 @@ void dijkstra(int start) {
     dist[start] = 0;
     pq.push({0,start});
     while(!pq.empty()) {
-        int cost = -pq.top().first;
+        int cost = pq.top().first;
         int cur = pq.top().second;
         pq.pop();
         
@@ -28,7 +28,7 @@ void dijkstra(int start) {
             int ncost = v[cur][i].second;
             if(dist[next] > ncost + cost) {
                 dist[next] = ncost + cost;
-                pq.push({-dist[next], next});
+                pq.push({dist[next], next});
             }
         }
     }
