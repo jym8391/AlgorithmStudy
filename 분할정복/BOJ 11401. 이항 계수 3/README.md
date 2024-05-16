@@ -23,3 +23,6 @@
 
 ### 참고 문헌 :  
 없음  
+
+### 유사한 문제 :   
+[BOJ 13172. Σ](https://www.acmicpc.net/problem/13172)   
