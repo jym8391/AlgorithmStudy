@@ -36,6 +36,6 @@ N개의 용액들의 특성값은 모두 서로 다르고, 산성 용액만으�
 없음  
 
 ### 유사한 문제 : 
-[BOJ 14921. 용액 합성하기](https://www.acmicpc.net/problem/2573)   
+[BOJ 14921. 용액 합성하기](https://www.acmicpc.net/problem/14921)   
 [BOJ 2470. 두 용액](https://www.acmicpc.net/problem/2470)   
 [BOJ 2473. 세 용액](https://www.acmicpc.net/problem/2473)   
