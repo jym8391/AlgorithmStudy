@@ -57,7 +57,3 @@ int main() {
     cout << cnt << "\n";
     return 0;
 }
-
-// 3
-// 0 0 1
-//ans : 0
