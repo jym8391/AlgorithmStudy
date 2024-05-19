@@ -32,3 +32,5 @@ Union-find를 이용해서 사이클이 발생하는지 확인한다.
 
 ### 유사한 문제 :   
 [BOJ 1922. 네트워크 연결](https://www.acmicpc.net/problem/1922)   
+[BOJ 6497. 전력난](https://www.acmicpc.net/problem/6497)   
+[BOJ 4386. 별자리 만들기](https://www.acmicpc.net/problem/4386)   
