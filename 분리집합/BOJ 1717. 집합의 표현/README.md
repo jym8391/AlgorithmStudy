@@ -33,3 +33,4 @@ Union-find 자료구조를 활용한 집합 관계를 표현하면 된다.
 
 ### 유사한 문제 :  
 [BOJ 1976. 여행 가자](https://www.acmicpc.net/problem/1976)  
+[BOJ 1043. 거짓말](https://www.acmicpc.net/problem/1043)   
