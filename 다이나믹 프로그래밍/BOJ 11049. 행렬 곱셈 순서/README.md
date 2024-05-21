@@ -43,4 +43,4 @@ dp[i][j] = Min(dp[i][j], dp[i][k] + dp[k+1][j] + d<sub>i</sub>d<sub>k</sub>d<sub
 
 
 ### 참고 문헌 :  
-[자료작성 참고]("https://80000coding.oopy.io/4debdb98-5033-47c0-9f8b-4f9a7d2cfc2b")
+[자료작성 참고](https://80000coding.oopy.io/4debdb98-5033-47c0-9f8b-4f9a7d2cfc2b)
