@@ -60,3 +60,6 @@ dp[i+1][1] = dp[i+1][2] + 1;
 dp[i+1][0] = min(dp[i+1][0],dp[i][1]+1);   
 dp[i+1][1] = min(dp[i+1][1],dp[i][0]+1);   
 위처럼 점화식을 구성할 수 있다.  
+
+### 참고 문헌 :  
+https://kibbomi.tistory.com/128  
