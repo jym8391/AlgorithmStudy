@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Mastery Curriculum - 전영민</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0056B3',
+                        secondary: '#007BFF',
+                        accent: '#10B981', // Emerald green for success/highlights
+                        background: '#F9FAFB',
+                        surface: '#FFFFFF',
+                        textMain: '#222222',
+                        textMuted: '#4B5563',
+                        borderLight: '#E5E7EB',
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'Noto Sans KR', 'Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9FAFB;
+            color: #222222;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0056B3 0%, #007BFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .curriculum-step:hover .step-number {
+            transform: scale(1.1) rotate(-5deg);
+            background-color: #0056B3;
+        }
+        .boj-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            background-color: #F3F4F6;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #0056B3;
+            font-weight: 600;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body class="font-sans antialiased pb-20">
+
+    <!-- Header Context Section -->
+    <header class="relative pt-12 pb-20 px-6 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-10">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="url(#grad1)" />
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#0056B3;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#007BFF;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto animate-fade-in">
+            <div class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase bg-blue-100 text-blue-700 rounded-full">
+                ROADMAP 2024
+            </div>
+            <h1 class="text-4xl md:text-6xl font-display font-extrabold mb-8 tracking-tight text-textMain leading-tight">
+                Diamond <span class="gradient-text">Curriculum</span>
+            </h1>
+
+            <!-- Info Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="glass-card p-6 rounded-2xl shadow-glass flex flex-col border border-white/50">
+                    <span class="text-sm font-semibold text-textMuted mb-1">USER NAME</span>
+                    <span class="text-xl font-bold text-textMain">전영민 님</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl shadow-glass flex flex-col border border-white/50">
+                    <span class="text-sm font-semibold text-textMuted mb-1">TARGET LEVEL</span>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-blue-500 animate-pulse"></span>
+                        <span class="text-xl font-bold text-textMain">다이아몬드 3</span>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl shadow-glass flex flex-col border border-white/50">
+                    <span class="text-sm font-semibold text-textMuted mb-1">DURATION</span>
+                    <span class="text-xl font-bold text-textMain">6개월 완성</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="max-w-4xl mx-auto px-6 -mt-10">
+        <!-- Intro Text -->
+        <article class="prose prose-slate max-w-none mb-16 animate-fade-in delay-1">
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-borderLight leading-relaxed">
+                <p class="text-lg text-textMuted">
+                    전영민 님을 위한 <strong class="text-textMain font-bold">6개월 완성 알고리즘 다이아몬드 3 달성 커리큘럼</strong>입니다. <br>
+                    이 로드맵은 기초부터 시작하여 solved.ac 다이아몬드 3 수준의 고난도 알고리즘까지 단계별로 정복할 수 있도록 정교하게 설계되었습니다.
+                </p>
+            </div>
+        </article>
+
+        <!-- Timeline / Curriculum Steps -->
+        <div class="space-y-12 animate-fade-in delay-2">
+            
+            <!-- Month 1 -->
+            <section class="curriculum-step group relative pl-8 md:pl-16 border-l-2 border-blue-100">
+                <div class="step-number absolute left-[-1.35rem] top-0 w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold transition-all duration-300 shadow-lg">1</div>
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-textMain mb-6 flex items-center gap-4">
+                    [1개월차] 기초 체력 및 알고리즘 기반 확립
+                    <span class="hidden md:inline-block h-px flex-grow bg-borderLight"></span>
+                </h2>
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-borderLight hover:shadow-md transition-shadow">
+                    <p class="mb-6 font-medium text-secondary">목표: 기본적인 구현 능력 배양 및 시간 복잡도에 대한 감각 익히기.</p>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-lg font-bold text-textMain mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            핵심 개념
+                        </h3>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <li class="p-3 rounded-xl bg-gray-50 text-sm"><span class="font-bold text-textMain block mb-1">완전 탐색 & 백트래킹</span> 모든 경우의 수를 탐색하고 유망하지 않은 경로는 가지치기.</li>
+                            <li class="p-3 rounded-xl bg-gray-50 text-sm"><span class="font-bold text-textMain block mb-1">이분 탐색</span> 정렬된 데이터에서 범위를 절반씩 줄여나가는 O(log N) 탐색.</li>
+                            <li class="p-3 rounded-xl bg-gray-50 text-sm"><span class="font-bold text-textMain block mb-1">기초 DP</span> 메모이제이션을 통한 효율적인 문제 해결의 기반.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-textMain mb-4">추천 문제</h3>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:bg-gray-50">
+                                <span class="text-sm">수 찾기 (이분 탐색 기초)</span>
+                                <span class="boj-tag">BOJ 1920</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:bg-gray-50">
+                                <span class="text-sm">RGB거리 (DP 상태 전이 이해)</span>
+                                <span class="boj-tag">BOJ 1149</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:bg-gray-50">
+                                <span class="text-sm">N-Queen (백트래킹의 정석)</span>
+                                <span class="boj-tag">BOJ 9663</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:bg-gray-50">
+                                <span class="text-sm">가장 긴 증가하는 부분 수열 2</span>
+                                <span class="boj-tag">BOJ 12015</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Month 2 -->
+            <section class="curriculum-step group relative pl-8 md:pl-16 border-l-2 border-blue-100">
+                <div class="step-number absolute left-[-1.35rem] top-0 w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold transition-all duration-300 shadow-lg">2</div>
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-textMain mb-6 flex items-center gap-4">
+                    [2개월차] 그래프 및 핵심 자료구조 마스터
+                </h2>
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-borderLight hover:shadow-md transition-shadow">
+                    <p class="mb-6 font-medium text-secondary">목표: 그래프 탐색과 구간 쿼리를 처리하는 핵심 자료구조 숙달.</p>
+                    <div class="mb-8">
+                        <h3 class="text-lg font-bold text-textMain mb-4">핵심 개념</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 rounded-full border border-borderLight bg-gray-50 text-sm font-semibold">최단 경로 (Dijkstra)</span>
+                            <span class="px-4 py-2 rounded-full border border-borderLight bg-gray-50 text-sm font-semibold">MST (Kruskal)</span>
+                            <span class="px-4 py-2 rounded-full border border-borderLight bg-gray-50 text-sm font-semibold">세그먼트 트리</span>
+                            <span class="px-4 py-2 rounded-full border border-borderLight bg-gray-50 text-sm font-semibold">위상 정렬</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-textMain mb-4">주요 학습 과제</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-sm p-3 bg-blue-50/30 rounded-lg">
+                                <span class="font-mono text-secondary font-bold">1753</span> 최단경로 표준 구현
+                            </li>
+                            <li class="flex items-center gap-3 text-sm p-3 bg-blue-50/30 rounded-lg">
+                                <span class="font-mono text-secondary font-bold">2252</span> 방향 그래프 순서 나열
+                            </li>
+                            <li class="flex items-center gap-3 text-sm p-3 bg-blue-50/30 rounded-lg">
+                                <span class="font-mono text-secondary font-bold">2042</span> 세그먼트 트리 입문
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Month 3 -->
+            <section class="curriculum-step group relative pl-8 md:pl-16 border-l-2 border-blue-100">
+                <div class="step-number absolute left-[-1.35rem] top-0 w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold transition-all duration-300 shadow-lg">3</div>
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-textMain mb-6">[3개월차] 플래티넘 진입 - 고급 테크닉 I</h2>
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-borderLight">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-secondary mb-3">고급 네트워크 이론</h4>
+                            <p class="text-sm text-textMuted leading-relaxed mb-4">네트워크 플로우(Dinic)와 이분 매칭을 통해 복잡한 매칭 문제를 해결합니다.</p>
+                            <span class="boj-tag">BOJ 11375 (이분 매칭)</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-secondary mb-3">구조적 그래프 분석</h4>
+                            <p class="text-sm text-textMuted leading-relaxed mb-4">강결합 컴포넌트(SCC)를 추출하여 그래프의 계층 구조를 파악합니다.</p>
+                            <span class="boj-tag">BOJ 2150 (SCC)</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-8 border-t border-gray-100">
+                        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-4">Additional Topics</span>
+                        <div class="flex gap-4">
+                            <span class="text-sm">Lazy Propagation</span>
+                            <span class="text-sm text-gray-300">|</span>
+                            <span class="text-sm">Convex Hull (Geometric)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Month 4 -->
+            <section class="curriculum-step group relative pl-8 md:pl-16 border-l-2 border-blue-100">
+                <div class="step-number absolute left-[-1.35rem] top-0 w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold transition-all duration-300 shadow-lg">4</div>
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-textMain mb-6">[4개월차] 플래티넘 심화 - 고급 테크닉 II</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-xl">
+                        <h4 class="text-accent font-bold mb-2">HLD & Tree Query</h4>
+                        <p class="text-sm text-slate-400 mb-4">트리를 체인으로 분해하여 경로 쿼리를 효율적으로 처리.</p>
+                        <span class="font-mono text-xs bg-slate-800 p-1.5 rounded text-slate-300">BOJ 13510</span>
+                    </div>
+                    <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-xl">
+                        <h4 class="text-accent font-bold mb-2">FFT Optimization</h4>
+                        <p class="text-sm text-slate-400 mb-4">다항식 곱셈을 이용한 고난도 매칭 최적화 기법.</p>
+                        <span class="font-mono text-xs bg-slate-800 p-1.5 rounded text-slate-300">BOJ 1067</span>
+                    </div>
+                    <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-xl md:col-span-2">
+                        <h4 class="text-accent font-bold mb-2">Mo's Algorithm</h4>
+                        <p class="text-sm text-slate-400 mb-4">쿼리를 정렬하여 오프라인으로 처리하는 평방 분할 테크닉.</p>
+                        <span class="font-mono text-xs bg-slate-800 p-1.5 rounded text-slate-300">BOJ 13547</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Month 5 -->
+            <section class="curriculum-step group relative pl-8 md:pl-16 border-l-2 border-blue-100">
+                <div class="step-number absolute left-[-1.35rem] top-0 w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold transition-all duration-300 shadow-lg">5</div>
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-textMain mb-6">[5개월차] 다이아몬드 하위 - 동적 자료구조</h2>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-borderLight">
+                    <div class="p-6 bg-blue-50/50 border-b border-borderLight">
+                        <p class="text-sm font-medium text-secondary">동적으로 변하는 구조와 특수한 세그먼트 트리 학습</p>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-center group/item p-2 rounded-lg hover:bg-gray-50">
+                            <div>
+                                <h5 class="font-bold text-textMain">Splay Tree & Link-cut Tree</h5>
+                                <p class="text-xs text-textMuted">트리의 연결과 절단을 동적으로 처리</p>
+                            </div>
+                            <span class="boj-tag">BOJ 13159</span>
+                        </div>
+                        <div class="flex justify-between items-center group/item p-2 rounded-lg hover:bg-gray-50">
+                            <div>
+                                <h5 class="font-bold text-textMain">Segment Tree Beats</h5>
+                                <p class="text-xs text-textMuted">구간 chmin, chmax 연산 최적화</p>
+                            </div>
+                            <span class="boj-tag">BOJ 17474</span>
+                        </div>
+                        <div class="flex justify-between items-center group/item p-2 rounded-lg hover:bg-gray-50">
+                            <div>
+                                <h5 class="font-bold text-textMain">Persistent Segment Tree</h5>
+                                <p class="text-xs text-textMuted">과거 상태 보존 및 K번째 수 쿼리</p>
+                            </div>
+                            <span class="boj-tag">BOJ 11932</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Month 6 -->
+            <section class="curriculum-step group relative pl-8 md:pl-16 border-l-2 border-blue-100">
+                <div class="step-number absolute left-[-1.35rem] top-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold transition-all duration-300 shadow-lg scale-125 ring-4 ring-blue-50">6</div>
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-textMain mb-6">
+                    [6개월차] <span class="text-primary">다이아몬드 3 정복</span> - 전문 최적화
+                </h2>
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <p class="text-blue-100 mb-8 font-medium">최고 난이도 DP 최적화와 복합 자료구조를 활용한 문제 해결 능력 완성</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white/10 backdrop-blur-sm p-5 rounded-2xl border border-white/20">
+                                <span class="text-xs font-bold text-blue-200 uppercase mb-2 block">Advanced Geometry</span>
+                                <h5 class="font-bold mb-1">Li Chao Tree</h5>
+                                <p class="text-xs text-blue-100 mb-3">직선들의 집합에서 최댓값 쿼리</p>
+                                <span class="text-[10px] px-2 py-1 bg-white/20 rounded font-mono">BOJ 12795 [D3]</span>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm p-5 rounded-2xl border border-white/20">
+                                <span class="text-xs font-bold text-blue-200 uppercase mb-2 block">DP Optimization</span>
+                                <h5 class="font-bold mb-1">Aliens Trick</h5>
+                                <p class="text-xs text-blue-100 mb-3">제약 조건의 이분 탐색화</p>
+                                <span class="text-[10px] px-2 py-1 bg-white/20 rounded font-mono">BOJ 17439 [D3]</span>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm p-5 rounded-2xl border border-white/20">
+                                <span class="text-xs font-bold text-blue-200 uppercase mb-2 block">Complex Queries</span>
+                                <h5 class="font-bold mb-1">Advanced Beats</h5>
+                                <p class="text-xs text-blue-100 mb-3">구간 제곱근 등 비선형 연산 관리</p>
+                                <span class="text-[10px] px-2 py-1 bg-white/20 rounded font-mono">BOJ 17476 [D3]</span>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm p-5 rounded-2xl border border-white/20">
+                                <span class="text-xs font-bold text-blue-200 uppercase mb-2 block">Graph Theory</span>
+                                <h5 class="font-bold mb-1">Dynamic Connectivity</h5>
+                                <p class="text-xs text-blue-100 mb-3">오프라인 간선 추가/삭제 쿼리</p>
+                                <span class="text-[10px] px-2 py-1 bg-white/20 rounded font-mono">BOJ 16911 [D3]</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative Circle -->
+                    <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tips Section -->
+        <section class="mt-24 p-8 md:p-12 bg-gray-50 rounded-[2.5rem] border border-borderLight relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-textMain mb-8">성공적인 학습을 위한 <span class="text-primary">전영민</span> 님께 드리는 팁</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm text-xl">🛠️</div>
+                        <h4 class="font-bold text-textMain">템플릿의 중요성</h4>
+                        <p class="text-sm text-textMuted">다이아몬드 문제는 코드 길이가 매우 깁니다. 본인만의 완벽하게 검증된 템플릿(Dinic, HLD 등)을 반드시 구축하세요.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm text-xl">🧮</div>
+                        <h4 class="font-bold text-textMain">수학적 사고</h4>
+                        <p class="text-sm text-textMuted">단순 구현을 넘어 수학적 모델링이 필수적입니다. 조합론과 정수론을 소홀히 하지 마세요.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm text-xl">📈</div>
+                        <h4 class="font-bold text-textMain">Solved.ac 활용</h4>
+                        <p class="text-sm text-textMuted">알고리즘 태그별로 부족한 분야를 집중 공략하는 것이 가장 빠른 성장의 지름길입니다.</p>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <p class="text-xl font-display font-bold text-primary italic">"6개월 뒤, 다이아몬드 3 달성을 진심으로 응원합니다!"</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple scroll reveal effect for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
